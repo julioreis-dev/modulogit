@@ -1,1 +1,1 @@
-Projeto teste de conexão com banco de dados com o uso do Docker.
+Projetos de  teste de conexão com banco de dados por meio do Docker.
