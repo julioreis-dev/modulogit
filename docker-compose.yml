@@ -1,0 +1,43 @@
+version: '3.8'
+services:
+    postgres:
+        container_name: postgres_container
+        image: library/postgres:13.2-alpine
+        restart: always
+        environment:
+            POSTGRES_PASSWORD: '1234'
+            POSTGRES_DB: 'testdb'
+            POSTGRES_USER: 'root'
+        ports:
+            - "5432:5432"
+        volumes:
+            - postgres_db:/var/lib/postgresql/data
+#            - C:\Users\Julio\Desktop\Pessoais\Banco de dados\postgres\gestao-maritima:/var/lib/postgresql/data
+
+    mysql:
+        image: library/mysql:8.0.23
+        container_name: mysql_container
+        ports:
+            - "3306:3306"
+        environment:
+            MYSQL_ROOT_PASSWORD: 'root'
+            MYSQL_DATABASE: 'bd_contratos'
+            MYSQL_USER: 'root'
+            MYSQL_PASSWORD: '1234'
+        volumes:
+            - mysql_db:/var/lib/mysql
+#            - C:\Users\Julio\Desktop\Pessoais\Banco de dados\mysql\gestao-maritima:/var/lib/mysql
+
+    mongo:
+        image: library/mongo:3.6.22-xenial
+        container_name: mongo_container
+        ports:
+            - "27017:27017"
+        volumes:
+            - mongo_db:/data/db
+#            - C:\Users\Julio\Desktop\Pessoais\Banco de dados\mongodb\data_campeonato:/data/db
+
+volumes:
+    mongo_db:
+    mysql_db:
+    postgres_db:
