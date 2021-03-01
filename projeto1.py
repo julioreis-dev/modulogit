@@ -45,7 +45,7 @@ def conectar_bd(*args):
 def catalogar(*args):
     dict_dados = {}
     contador = args[0].max_row
-    lista_icj = [args[0].cell(row=linha, column=1).value for linha in range(2, contador + 1)]
+    lista_icj = [args[0].cell(row=line_excel, column=1).value for line_excel in range(2, contador + 1)]
     for line in range(2, contador + 1):
         dict_dados[args[0].cell(row=line, column=1).value] = [args[0].cell(row=line, column=coluna).value
                                                               for coluna in [2, 4, 5, 6, 7, 8, 9, 10, 11, 12]]
